@@ -16,10 +16,6 @@
     "url": "https://github.com/michaeldeggers/modern-react-redux/issues"
   },
   "homepage": "https://github.com/michaeldeggers/modern-react-redux#readme",
-  "devDependencies": {
-    "prettier": "^1.16.4"
-  },
-  "dependencies": {
-    "faker": "^4.1.0"
-  }
+  "devDependencies": {},
+  "dependencies": {}
 }
