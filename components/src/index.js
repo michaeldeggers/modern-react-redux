@@ -3,22 +3,27 @@ import ReactDOM from 'react-dom';
 import faker from 'faker';
 
 import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 const App = () => {
     return (
         <div className="ui container comments">
-            <CommentDetail
-                author={faker.name.findName()}
-                avatar={faker.image.avatar()}
-                date={faker.date.recent().toDateString()}
-                comment={faker.lorem.paragraph(3)}
-            />
-            <CommentDetail
-                author={faker.name.findName()}
-                avatar={faker.image.avatar()}
-                date={faker.date.recent().toDateString()}
-                comment={faker.lorem.paragraph(3)}
-            />
+            <ApprovalCard>
+                <CommentDetail
+                    author={faker.name.findName()}
+                    avatar={faker.image.avatar()}
+                    date={faker.date.recent().toDateString()}
+                    comment={faker.lorem.paragraph(3)}
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail
+                    author={faker.name.findName()}
+                    avatar={faker.image.avatar()}
+                    date={faker.date.recent().toDateString()}
+                    comment={faker.lorem.paragraph(3)}
+                />
+            </ApprovalCard>
         </div>
     );
 };
