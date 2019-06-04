@@ -1,16 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
+class App extends React.Component {
+  // particular to js, not react
+  constructor(props) {
+    // super is specific to react, ref to parents constructor function
+    super(props);
+    this.state = {
+      lat: null // generally default eventual numbers to null
+    }
+  }
+
+  // react says we have to define render
+  render() {
     window.navigator.geolocation.getCurrentPosition(
-        (position) => console.log(position),
-        (err) => console.error(err)
+      position => {
+        this.setState({ lat: position.coords.latitude });
+      },
+      err => console.error(err)
     );
 
-    return <div>Hi There</div>;
+    const latitude = this.state.latitude;
+    return <div style={{padding: `15px`}}>Latitude: {latitude}</div>;
+  }
 }
 
-ReactDOM.render(
-    <App />,
-    document.querySelector('#root')
-)
+ReactDOM.render(<App />, document.querySelector('#root'));
