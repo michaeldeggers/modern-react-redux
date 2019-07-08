@@ -1,4 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+  
+  img {
+    width: 250px;
+  }
+`;
+
 
 const ImageList = ({ images }) => {
   const imageList = images.map(({ id, urls, description}) => {
@@ -8,11 +20,11 @@ const ImageList = ({ images }) => {
         key={id}
         src={regular}
         alt={description}
-        style={{ maxHeight: `250px` }} />
+      />
     );
   });
 
-  return <div>{imageList}</div>;
+  return <Container>{imageList}</Container>;
 };
 
 export default ImageList;
