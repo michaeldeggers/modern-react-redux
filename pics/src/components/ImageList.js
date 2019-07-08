@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ImageCard from './ImageCard';
+
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 0 10px;
+  grid-auto-rows: 10px;
   
   img {
     width: 250px;
@@ -13,13 +16,11 @@ const Container = styled.div`
 
 
 const ImageList = ({ images }) => {
-  const imageList = images.map(({ id, urls, description}) => {
-    const { regular } = urls;
+  const imageList = images.map((image) => {
     return (
-      <img
-        key={id}
-        src={regular}
-        alt={description}
+      <ImageCard
+        key={image.id}
+        image={image}
       />
     );
   });
