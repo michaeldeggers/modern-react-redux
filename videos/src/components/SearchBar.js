@@ -8,6 +8,7 @@ class SearchBar extends React.Component {
   };
 
   handleFormSubmit = event => {
+    event.preventDefault();
     console.log(event);
   };
 
