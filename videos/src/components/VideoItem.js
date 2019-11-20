@@ -11,10 +11,10 @@ const Wrapper = styled.div`
     }
 `;
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, handleVideoSelect }) => {
   const { snippet: { title, thumbnails: { medium: { url } } } } = video;
   return (
-    <Wrapper className="item">
+    <Wrapper onClick={() => handleVideoSelect(video)} className="item">
       <img className="ui image" src={url} alt={title}/>
       <div className="content">
         <div className="header">{title}</div>
